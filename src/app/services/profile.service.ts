@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from "rxjs/operators";
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,6 @@ export class ProfileService {
 
   getProfileInfo(){
     const data = this.http.get("https://api.github.com/users/"+this.username+"?client_id="+this.clientid+"&client_secret="+this.clientsecret).pipe(tap((res: any) => res.json));
-    // console.log(data);
     return data;
   }
 
